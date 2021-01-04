@@ -9,6 +9,7 @@ import axios, {
 export interface AjaxOptions {
     baseURL: string;
     headers?: object;
+    headerAuthorization?: string | (() => string);
 }
 
 export default class Ajax {
@@ -20,6 +21,9 @@ export default class Ajax {
 
     private static buildOptions(options: AjaxOptions): AxiosRequestConfig {
         const config: AxiosRequestConfig = {};
+        if (options.baseURL) {
+            config.baseURL = options.baseURL;
+        }
         return config;
     }
 
@@ -37,6 +41,6 @@ export default class Ajax {
     public instance = (): AxiosInstance => Ajax.instance(this.options);
 
     public get = (url: string): AxiosPromise => {
-        return this.instance().get(url) as AxiosPromise;
+        return this.instance().get(`${url}&apikey=4a3b711b`) as AxiosPromise;
     };
 }

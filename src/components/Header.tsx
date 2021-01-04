@@ -1,7 +1,14 @@
 import React from "react";
 
-const Header = () => {
-    return <div></div>;
+type HeaderProps = {
+    text: string;
+};
+const Header = ({ text }: HeaderProps) => {
+    return (
+        <header>
+            <h2>{text}</h2>
+        </header>
+    );
 };
 
 export default Header;

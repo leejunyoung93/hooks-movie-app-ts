@@ -12,7 +12,7 @@ class ResourceService extends Ajax {
     }
 }
 
-const link = "https://www.omdbapi.com/?s=man&apikey=4a3b711b";
+const link = "https://www.omdbapi.com";
 
 const service = new ResourceService(link);
 
