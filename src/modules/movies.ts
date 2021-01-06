@@ -86,10 +86,10 @@ function* searchMoviesFunc(action: MoviesAction) {
     try {
         const { payload } = action;
         const res = yield call(api.searchMovies, payload);
-        if (res.data.Response === "True") {
+        if (res.Response === "True") {
             yield put({
                 type: SEARCH_MOVIES_SUCCESS,
-                payload: res
+                payload: res.Search
             });
         } else {
             const { Error } = res;
