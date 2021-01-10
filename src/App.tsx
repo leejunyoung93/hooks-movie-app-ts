@@ -7,17 +7,13 @@ import { moviesActions } from "modules/movies";
 
 const App = () => {
     const dispatch = useDispatch();
-    const { movies, errorMessage, loading } = useSelector(
-        (state: any) => state.movies
+    const { data, error, loading } = useSelector(
+        (state: any) => state.movies.movies
     );
     const [searchValue, setSearchValue] = useState("man");
 
     useEffect(() => {
-        dispatch(
-            moviesActions.searchMovies.request({
-                searchValue
-            })
-        );
+        dispatch(moviesActions.searchMovies.request({ value: searchValue }));
     }, [dispatch, searchValue]);
 
     const search = (searchValue: string) => {
@@ -26,10 +22,10 @@ const App = () => {
 
     const retrievedMovies = loading ? (
         <img className="spinner" src={spinner} alt="Loading spinner" />
-    ) : errorMessage ? (
-        <div className="errorMessage">{errorMessage}</div>
+    ) : error ? (
+        <div className="errorMessage">{error}</div>
     ) : (
-        movies.map((movie, index) => (
+        data.Search.map((movie, index) => (
             <Movie key={`${index}-${movie.Title}`} movie={movie} />
         ))
     );
