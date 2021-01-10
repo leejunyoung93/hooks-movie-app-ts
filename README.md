@@ -4,7 +4,7 @@ An application used to find movies with movie titles, built with React, Redux, T
 
 ## Project Screen Shot(s)
 
-![screenshot](./screenshot.jpg)
+![screenshot](./screenshot.png)
 
 ## Installation and Setup Instructions
 
