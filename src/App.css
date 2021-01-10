@@ -79,11 +79,7 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="submit"]:disabled {
-    cursor: not-allowed;
-}
-
-input[type="submit"]:hover:not("disabled") {
+input[type="submit"]:hover {
     background-color: #282c34;
     color: antiquewhite;
 }
