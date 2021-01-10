@@ -2,7 +2,7 @@ import { createAsyncAction, ActionType } from "typesafe-actions";
 import { takeLatest } from "redux-saga/effects";
 import service from "api";
 import {
-    createPromiseSagaById,
+    createPromiseSaga,
     reducerUtils,
     handleAsyncActions
 } from "lib/asyncUtils";
@@ -85,7 +85,7 @@ const api = {
 };
 
 //saga
-const searchMoviesFunc = createPromiseSagaById(SEARCH_MOVIES, api.searchMovies);
+const searchMoviesFunc = createPromiseSaga(SEARCH_MOVIES, api.searchMovies);
 
 export function* moviesSaga() {
     yield takeLatest(SEARCH_MOVIES, searchMoviesFunc);
